@@ -941,3 +941,10 @@ function showFormMessage(msg, type) {
     alert(msg);
   }
 }
+function showSuccessPopup() {
+  document.getElementById("success-popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("success-popup").style.display = "none";
+}
