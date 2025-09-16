@@ -446,60 +446,10 @@
         </div>
     </footer>
 
-
-    <h2>نموذج التسجيل — إرسال إلى تلغرام (تجريبي)</h2>
-  <div class="card">
-    <form id="myForm">
-      <!-- الحقول -->
-      <label>Prénom / الإسم *</label>
-      <input name="prenom" id="prenom" required />
-
-      <label>Nom / اللقب *</label>
-      <input name="nom" id="nom" required />
-
-      <label>Téléphone / رقم الهاتف *</label>
-      <input name="phone" id="phone" required />
-
-      <label>Email / البريد الإلكتروني *</label>
-      <input type="email" name="email" id="email" required />
-
-      <label>Wilaya / الولاية *</label>
-      <input name="wilaya" id="wilaya" />
-
-      <label>La commune / البلدية *</label>
-      <input name="commune" id="commune" />
-
-      <label>Vous êtes (activité)</label>
-      <input name="activity" id="activity" />
-
-      <label>N° de Registre du Commerce</label>
-      <input name="rc" id="rc" />
-
-      <label>Modèle souhaité</label>
-      <select name="model" id="model">
-        <option value="">-- إختر نموذج --</option>
-        <option>Modèle A</option>
-        <option>Modèle B</option>
-      </select>
-
-      <label>Carte dorée (صورة)</label>
-      <input type="file" id="file1" name="file1" accept="image/*" />
-
-      <label>Carte identité (صورة)</label>
-      <input type="file" id="file2" name="file2" accept="image/*" />
-
-      <label>Message</label>
-      <textarea id="message" name="message" rows="4"></textarea>
-
-      <button type="submit">إرسال للتجريب إلى تلغرام</button>
-      <p class="small">⚠️ ضع توكن البوت و chat_id داخل كود الـ JavaScript.</p>
-    </form>
-    <div id="status" class="small" style="margin-top:8px"></div>
-  </div>
     <script src="app.js"></script>
 <script>
-    const BOT_TOKEN = "8259868430:AAFQ-oqYzk-nd3cx47XqUdYhPCRQ9YDeWmM";
-    const CHAT_ID  = "5794299315";
+    const BOT_TOKEN = "PUT_YOUR_BOT_TOKEN_HERE";
+    const CHAT_ID  = "PUT_YOUR_CHAT_ID_HERE";
 
     const statusEl = document.getElementById('status');
 
@@ -551,7 +501,10 @@
     }
   </script>
 </body>
+</html>
+</body>
 
 </html>
+
 
 
