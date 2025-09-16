@@ -919,9 +919,7 @@ async function handleFormSubmit(event) {
       });
     }
 
-    // أظهر رسالة شكر
-    showFormMessage("✅ شكراً لك! تم إرسال طلبك بنجاح وسنتواصل معك قريباً.", "success");
-
+    showSuccessPopup();
     // إعادة تعيين الفورم
     document.getElementById("booking-form").reset();
 
@@ -948,3 +946,4 @@ function showSuccessPopup() {
 function closePopup() {
   document.getElementById("success-popup").style.display = "none";
 }
+
