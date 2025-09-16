@@ -447,64 +447,34 @@
     </footer>
 
     <script src="app.js"></script>
+<!-- زر من عندك -->
+<button id="myButton">إرسال إلى تلغرام</button>
+
 <script>
-    const BOT_TOKEN = "PUT_YOUR_BOT_TOKEN_HERE";
-    const CHAT_ID  = "PUT_YOUR_CHAT_ID_HERE";
+  const BOT_TOKEN = "8259868430:AAFQ-oqYzk-nd3cx47XqUdYhPCRQ9YDeWmM";
+  const CHAT_ID = "5794299315";
 
-    const statusEl = document.getElementById('status');
-
-    document.getElementById('myForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      statusEl.textContent = "جاري الإرسال...";
-      try {
-        // جمع البيانات
-        const data = {
-          prenom: prenom.value.trim(),
-          nom: nom.value.trim(),
-          phone: phone.value.trim(),
-          email: email.value.trim(),
-          wilaya: wilaya.value.trim(),
-          commune: commune.value.trim(),
-          activity: activity.value.trim(),
-          rc: rc.value.trim(),
-          model: model.value.trim(),
-          message: message.value.trim(),
-        };
-
-        // نص الرسالة
-        let text = `<b>نموذج جديد</b>%0A`;
-        text += `<b>الاسم:</b> ${escapeHtml(data.prenom)} ${escapeHtml(data.nom)}%0A`;
-        text += `<b>الهاتف:</b> ${escapeHtml(data.phone)}%0A`;
-        text += `<b>البريد:</b> ${escapeHtml(data.email)}%0A`;
-
-        // إرسال الرسالة
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: decodeURIComponent(text),
-            parse_mode: "HTML"
-          })
-        });
-
-        statusEl.textContent = "✅ تم الإرسال";
-      } catch (err) {
-        statusEl.textContent = "❌ فشل الإرسال";
-        console.error(err);
-      }
-    });
-
-    function escapeHtml(s){
-      if(!s) return "";
-      return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  document.getElementById("myButton").addEventListener("click", async () => {
+    try {
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: "✅ تم الضغط على الزر الخاص بك!"
+        })
+      });
+      alert("تم إرسال الرسالة إلى تلغرام ✅");
+    } catch (e) {
+      console.error(e);
+      alert("فشل الإرسال ❌");
     }
-  </script>
-</body>
-</html>
+  });
+</script>
 </body>
 
 </html>
+
 
 
 
