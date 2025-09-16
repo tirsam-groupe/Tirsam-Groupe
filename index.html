@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIRSAM - Leader dans la fabrication de camions</title>
+    <meta name="description" content="TIRSAM leader dans la fabrication et distribution de camions et engins de construction de haute qualité. Découvrez nos modèles 3.5 et 6 tonnes.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="TIRSAM - Leader dans la fabrication de camions">
+    <meta property="og:description" content="Leader dans la fabrication et distribution de camions et engins de construction de haute qualité">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section" style="background-image: url('./assets/new-hero-bg.png');">
+        <!-- Top Section - Logo -->
+        <div class="container">
+            <div class="logo-container">
+                <img src="./assets/logo.png" alt="TIRSAM" class="logo">
+            </div>
+        </div>
+        
+        <!-- Bottom Section - CTA Button -->
+        <div class="container hero-bottom">
+            <div class="hero-cta">
+                <button id="commander-btn" class="cta-button" data-testid="button-commander-maintenant">
+                    Commander maintenant
+                </button>
+                <!-- Language Toggle Button -->
+                <button id="language-toggle" class="language-toggle" data-testid="button-language-toggle">
+                    عربي
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Truck Models Section -->
+    <section class="truck-models-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos modèles disponibles</h2>
+                <p>Découvrez notre gamme de camions conçus pour répondre à tous vos besoins de transport</p>
+            </div>
+
+            <div class="truck-grid">
+                <!-- 3.5 Ton Truck -->
+                <div class="truck-card" data-testid="card-truck-35">
+                    <img src="./assets/truck.png" alt="Camion 3.5 tonnes" class="truck-image" data-testid="img-truck-35">
+                    <div class="truck-info">
+                        <h3>
+                            <span class="model-name" data-testid="text-model-35-fr">Camion 3.5 tonnes</span>
+                            <span class="model-name-ar" data-testid="text-model-35-ar">شاحنة 3.5 طن</span>
+                        </h3>
+                        <p class="truck-description">
+                            <span>Idéal pour les livraisons urbaines et transport léger</span>
+                            <span class="description-ar">مثالي للتوصيل داخل المدن والنقل الخفيف</span>
+                        </p>
+                        <div class="price-section">
+                            <span class="price-label">À partir de</span>
+                            <div class="price-badge" data-testid="text-price-35">
+                                3 900 000 DZD TTC*
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 Ton Truck -->
+                <div class="truck-card" data-testid="card-truck-6">
+                    <img src="./assets/truck.png" alt="Camion 6 tonnes" class="truck-image" data-testid="img-truck-6">
+                    <div class="truck-info">
+                        <h3>
+                            <span class="model-name" data-testid="text-model-6-fr">Camion 6 tonnes</span>
+                            <span class="model-name-ar" data-testid="text-model-6-ar">شاحنة 6 طن</span>
+                        </h3>
+                        <p class="truck-description">
+                            <span>Le choix optimal pour les professionnels du transport</span>
+                            <span class="description-ar">الخيار الأمثل لمحترفي النقل</span>
+                        </p>
+                        <div class="price-section">
+                            <span class="price-label">À partir de</span>
+                            <div class="price-badge" data-testid="text-price-6">
+                                4 600 000 DZD TTC*
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <p class="section-subtitle">
+                    Robustesse, confort et efficacité : nos camions répondent à tous vos défis quotidiens.
+                </p>
+                <button id="reserver-btn" class="reserve-button" data-testid="button-reserver-maintenant">
+                    Réserver maintenant
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="Formulaire" class="booking-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>
+                        <span class="header-ar">املأ الاستمارة الآن لتأكيد طلبك</span>
+                        <span class="header-fr">Complétez le formulaire pour passer commande dès maintenant</span>
+                    </h2>
+                    <p class="form-subtitle">
+                        <span class="subtitle-ar">كن من الأوائل في حجز شاحنتك واستفد من عروض الإطلاق الحصرية</span>
+                        <span class="subtitle-fr">Soyez parmi les premiers à réserver votre camion et profitez d'offres exclusives de lancement.</span>
+                    </p>
+                    <p class="warning-notice">
+                        <span class="warning-ar">التسجيلات المكررة تلغى تلقائيا</span>
+                        <span class="warning-fr">les inscriptions en double sont automatiquement annulées.</span>
+                    </p>
+                </div>
+
+                <form id="booking-form" class="booking-form">
+                    <div class="form-grid">
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <label for="firstName">
+                                <span>Prénom *</span>
+                                <span class="label-ar">الإسم</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" required data-testid="input-firstName">
+                            <div class="error-message" id="firstName-error"></div>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="form-group">
+                            <label for="lastName">
+                                <span>Nom *</span>
+                                <span class="label-ar">اللقب</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" required data-testid="input-lastName">
+                            <div class="error-message" id="lastName-error"></div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="phone">
+                                <span>Téléphone *</span>
+                                <span class="label-ar">رقم الهاتف</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" required data-testid="input-phone">
+                            <div class="error-message" id="phone-error"></div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">
+                                <span>Email *</span>
+                                <span class="label-ar">البريد الإلكتروني</span>
+                            </label>
+                            <input type="email" id="email" name="email" required data-testid="input-email">
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+
+                        <!-- Wilaya -->
+                        <div class="form-group">
+                            <label for="wilaya">
+                                <span>Wilaya *</span>
+                                <span class="label-ar">الولاية</span>
+                            </label>
+                            <select id="wilaya" name="wilaya" required data-testid="select-wilaya">
+                                <option value="">Votre wilaya</option>
+                                <option value="01">01 أدرار | Adrar</option>
+                                <option value="02">02 الشلف | Chlef</option>
+                                <option value="03">03 الأغواط | Laghouat</option>
+                                <option value="04">04 أم البواقي | Oum El Bouaghi</option>
+                                <option value="05">05 باتنة | Batna</option>
+                                <option value="06">06 بجاية | Béjaïa</option>
+                                <option value="07">07 بسكرة | Biskra</option>
+                                <option value="08">08 بشار | Béchar</option>
+                                <option value="09">09 البليدة | Blida</option>
+                                <option value="10">10 البويرة | Bouira</option>
+                                <option value="11">11 تمنراست | Tamanrasset</option>
+                                <option value="12">12 تبسة | Tébessa</option>
+                                <option value="13">13 تلمسان | Tlemcen</option>
+                                <option value="14">14 تيارت | Tiaret</option>
+                                <option value="15">15 تيزي وزو | Tizi Ouzou</option>
+                                <option value="16">16 الجزائر | Alger</option>
+                                <option value="17">17 الجلفة | Djelfa</option>
+                                <option value="18">18 جيجل | Jijel</option>
+                                <option value="19">19 سطيف | Sétif</option>
+                                <option value="20">20 سعيدة | Saïda</option>
+                                <option value="21">21 سكيكدة | Skikda</option>
+                                <option value="22">22 سيدي بلعباس | Sidi Bel Abbès</option>
+                                <option value="23">23 عنابة | Annaba</option>
+                                <option value="24">24 قالمة | Guelma</option>
+                                <option value="25">25 قسنطينة | Constantine</option>
+                                <option value="26">26 المدية | Médéa</option>
+                                <option value="27">27 مستغانم | Mostaganem</option>
+                                <option value="28">28 المسيلة | M'sila</option>
+                                <option value="29">29 معسكر | Mascara</option>
+                                <option value="30">30 ورقلة | Ouargla</option>
+                                <option value="31">31 وهران | Oran</option>
+                                <option value="32">32 البيض | El Bayadh</option>
+                                <option value="33">33 إليزي | Illizi</option>
+                                <option value="34">34 برج بوعريريج | Bordj Bou Arréridj</option>
+                                <option value="35">35 بومرداس | Boumerdès</option>
+                                <option value="36">36 الطارف | El Tarf</option>
+                                <option value="37">37 تندوف | Tindouf</option>
+                                <option value="38">38 تيسمسيلت | Tissemsilt</option>
+                                <option value="39">39 الوادي | El Oued</option>
+                                <option value="40">40 خنشلة | Khenchela</option>
+                                <option value="41">41 سوق أهراس | Souk Ahras</option>
+                                <option value="42">42 تيبازة | Tipaza</option>
+                                <option value="43">43 ميلة | Mila</option>
+                                <option value="44">44 عين الدفلى | Aïn Defla</option>
+                                <option value="45">45 النعامة | Naâma</option>
+                                <option value="46">46 عين تموشنت | Aïn Témouchent</option>
+                                <option value="47">47 غرداية | Ghardaïa</option>
+                                <option value="48">48 غليزان | Relizane</option>
+                                <option value="49">49 تيميمون | Timimoun</option>
+                                <option value="50">50 برج باجي مختار | Bordj Badji Mokhtar</option>
+                                <option value="51">51 أولاد جلال | Ouled Djellal</option>
+                                <option value="52">52 بني عباس | Béni Abbès</option>
+                                <option value="53">53 عين صالح | In Salah</option>
+                                <option value="54">54 عين قزام | In Guezzam</option>
+                                <option value="55">55 تقرت | Touggourt</option>
+                                <option value="56">56 جانت | Djanet</option>
+                                <option value="57">57 المغير | El M'Ghair</option>
+                                <option value="58">58 المنيعة | El Meniaa</option>
+                            </select>
+                            <div class="error-message" id="wilaya-error"></div>
+                        </div>
+
+                        <!-- Commune -->
+                        <div class="form-group">
+                            <label for="commune">
+                                <span>La commune *</span>
+                                <span class="label-ar">البلدية</span>
+                            </label>
+                            <input type="text" id="commune" name="commune" required data-testid="input-commune">
+                            <div class="error-message" id="commune-error"></div>
+                        </div>
+
+                        <!-- Business Type -->
+                        <div class="form-group full-width">
+                            <label for="businessType">
+                                <span>Vous êtes *</span>
+                                <span class="label-ar">نوع النشاط</span>
+                            </label>
+                            <select id="businessType" name="businessType" required data-testid="select-businessType">
+                                <option value="">Votre activité</option>
+                                <option value="commercant">Commerçant — تاجر</option>
+                                <option value="artisan">Artisan — حرفي</option>
+                                <option value="fellah">Fellah/Éleveur — فلاح/ مربي</option>
+                            </select>
+                            <div class="error-message" id="businessType-error"></div>
+                        </div>
+
+                        <!-- Registration Number (Conditional) -->
+                        <div class="form-group full-width hidden" id="registrationGroup">
+                            <label for="registrationNumber" id="registrationLabel">
+                                <span id="registrationText">N° de Registre du Commerce *</span>
+                                <span class="label-ar" id="registrationTextAr">رقم السجل التجاري</span>
+                            </label>
+                            <input type="text" id="registrationNumber" name="registrationNumber" data-testid="input-registrationNumber">
+                            <div class="error-message" id="registrationNumber-error"></div>
+                        </div>
+
+                        <!-- Truck Model -->
+                        <div class="form-group full-width">
+                            <label for="truckModel">
+                                <span>Modèle souhaité *</span>
+                                <span class="label-ar">النموذج المطلوب</span>
+                            </label>
+                            <select id="truckModel" name="truckModel" required data-testid="select-truckModel">
+                                <option value="">Sélectionnez un modèle</option>
+                                <option value="3.5">Camion 3.5 tonnes - شاحنة 3,5 طن</option>
+                                <option value="6">Camion 6 tonnes - شاحنة 6 طن</option>
+                            </select>
+                            <div class="error-message" id="truckModel-error"></div>
+                        </div>
+
+                        <!-- File Upload Section -->
+                        <div class="upload-section full-width">
+                            <!-- National ID Upload -->
+                            <div class="upload-card">
+                                <div class="upload-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                </div>
+                                <h3>
+                                    <span>Carte d'identité nationale *</span>
+                                    <span class="upload-subtitle">بطاقة التعريف الوطنية</span>
+                                </h3>
+                                <input type="file" id="nationalId" name="nationalId" accept="image/*" class="file-input" data-testid="input-national-id">
+                                <label for="nationalId" class="upload-button">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    رفع الصورة
+                                </label>
+                                <div class="file-status" id="nationalId-status"></div>
+                            </div>
+
+                            <!-- Gold Card Upload -->
+                            <div class="upload-card gold-card">
+                                <div class="upload-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                        <line x1="1" y1="10" x2="23" y2="10"/>
+                                    </svg>
+                                </div>
+                                <h3>
+                                    <span>Carte dorée (face avant) *</span>
+                                    <span class="upload-subtitle">الواجهة الأمامية للبطاقة الذهبية</span>
+                                </h3>
+                                <input type="file" id="goldCard" name="goldCard" accept="image/*" class="file-input" data-testid="input-gold-card">
+                                <label for="goldCard" class="upload-button gold">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    رفع الصورة
+                                </label>
+                                <div class="file-status" id="goldCard-status"></div>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group full-width">
+                            <label for="message">
+                                <span>Message</span>
+                                <span class="label-ar">اكتب رسالتك هنا</span>
+                            </label>
+                            <textarea id="message" name="message" rows="4" data-testid="textarea-message"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Consent Checkbox -->
+                    <div class="consent-section">
+                        <div class="consent-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required data-testid="checkbox-consent">
+                            <label for="consent" class="consent-text">
+                                <span class="consent-ar">أنا أوافق على معالجة معلوماتي بأمان واستخدامها فقط لأغراض هذا الطلب، وفقًا للقانون الجزائري رقم 18-07 المتعلق بحماية البيانات الشخصية</span>
+                                <span class="consent-fr">J'accepte que mes informations soient traitées en toute sécurité et utilisées uniquement aux fins de cette commande, conformément à la loi algérienne n° 18-07 relative à la protection des données personnelles</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="submit-section">
+                        <button type="submit" id="submit-btn" class="submit-button" data-testid="button-submit">
+                            <span class="submit-text">S'inscrire</span>
+                            <span class="submit-text-ar">سجّل الآن</span>
+                        </button>
+                    </div>
+
+                    <!-- Success/Error Messages -->
+                    <div id="form-messages" class="form-messages"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-header">
+                <div class="footer-logo">
+                    <img src="./assets/logo.png" alt="TIRSAM">
+                </div>
+                <p class="footer-description">
+                    Leader dans la fabrication et distribution de camions<br>
+                    et engins de construction de haute qualité
+                </p>
+
+                <!-- Social Media Icons -->
+                <div class="social-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" data-testid="link-facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-testid="link-linkedin">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-testid="link-instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-testid="link-tiktok">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-testid="link-youtube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-content">
+                <!-- Siège social -->
+                <div class="footer-section">
+                    <h3>Siège social et usine:</h3>
+                    <p>Zone industrielle Kechida, Batna 05000 – Algérie</p>
+                </div>
+
+                <!-- Email -->
+                <div class="footer-section">
+                    <h3>Email:</h3>
+                    <p>commercial2@tirsam.com</p>
+                </div>
+
+                <!-- Mobile -->
+                <div class="footer-section">
+                    <h3>Mobile:</h3>
+                    <p>+213 (0)664251175</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    TIRSAM - Tout droit réservé © 2025 | Conçu et développé par
+                    <span class="accent-text">HiveDigit</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Replit Badge Script -->
+    <script
+      src="https://replit.com/public/js/replit-badge-v2.js"
+      theme="dark"
+      position="bottom-right"
+    ></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
