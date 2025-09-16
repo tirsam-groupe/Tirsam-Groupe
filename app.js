@@ -820,9 +820,9 @@ function checkForDuplicateSubmission() {
             
             if (hoursDiff < 24) {
                 showFormMessage(
-                    'Note: Une soumission similaire a été détectée dans les dernières 24 heures. Les inscriptions en double sont automatiquement annulées.',
-                    'error'
-                );
+    '⏳ يرجى الانتظار بضع ثواني يتم ارسال طلبك  ...',
+    'info'
+);
             }
         }
         
@@ -852,4 +852,5 @@ window.TirsamBooking = {
     validateField,
     scrollToForm,
     showFormMessage
+
 };
