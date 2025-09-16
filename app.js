@@ -946,4 +946,3 @@ function showSuccessPopup() {
 function closePopup() {
   document.getElementById("success-popup").style.display = "none";
 }
-
