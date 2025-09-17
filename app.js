@@ -895,7 +895,6 @@ async function handleFormSubmit(event) {
       }),
     });
 
-    // إرسال صورة بطاقة الهوية إذا موجودة
     // إرسال صورة بطاقة الهوية (إجباري)
 const nationalId = document.getElementById("nationalId").files[0];
 if (!nationalId) {
@@ -910,7 +909,8 @@ if (!nationalId) {
     body: fd,
   });
 }
-      // إرسال صورة البطاقة الذهبية (إجباري)
+
+// إرسال صورة البطاقة الذهبية (إجباري)
 const goldCard = document.getElementById("goldCard").files[0];
 if (!goldCard) {
   showFormMessage("❌ يرجى رفع صورة البطاقة الذهبية قبل تأكيد الطلب.", "error");
@@ -924,7 +924,6 @@ if (!goldCard) {
     body: fd,
   });
 }
-
     showSuccessPopup();
     // إعادة تعيين الفورم
     document.getElementById("booking-form").reset();
@@ -952,4 +951,5 @@ function showSuccessPopup() {
 function closePopup() {
   document.getElementById("success-popup").style.display = "none";
 }
+
 
